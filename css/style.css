@@ -4,9 +4,9 @@
     vertical-align: baseline;
 }
 
-/* html {
+html {
     font-family: system-ui, sans-serif;
-} */
+}
 
 main {
     background: linear-gradient(#454545, #676767, #454545);
@@ -23,7 +23,7 @@ body {
 .dices {
     align-items: center;
     display: grid;
-    grid-gap: 2rem;
+    grid-gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
     grid-template-rows: auto;
     justify-items: center;
@@ -55,7 +55,8 @@ body {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     height: 100%;
-    padding: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     position: absolute;
     width: 100%;
 }
