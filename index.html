@@ -2,40 +2,81 @@
 <html lang="en">
 
 <head>
+    <meta charset="utf-8">
     <title>Mobile Web</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script> -->
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+
+
 </head>
 
 <body>
+    <button type="button" data-toggle="modal" data-target="#high-modal">Highscores</button>
+    <div id="high-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Top 5 high scores:</h2>
+                </div>
+
+                <div class="modal-body">
+                    <div class="score">
+                        <p id="highScore"></p>
+                        <p id="highfive"></p>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
     <main>
+        <div class="win">
+            <h3>Best Win Streak:</h3>
+            <p id="bestWin"></p>
+            <h3>Total Win:</h3>
+            <p id="totWin"></p>
+        </div>
         <div class="dices">
             <ol class="die-list even-roll" data-roll="1" id="die1">
-                <li class="die-item" data-side="1">
+                <li class="die-item" data-side="1" value="1">
                     <span class="dot"></span>
                 </li>
-                <li class="die-item" data-side="2">
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                </li>
-                <li class="die-item" data-side="3">
-                    <span class="dot"></span>
+                <li class="die-item" data-side="2" value="2">
                     <span class="dot"></span>
                     <span class="dot"></span>
                 </li>
-                <li class="die-item" data-side="4">
-                    <span class="dot"></span>
+                <li class="die-item" data-side="3" value="3">
                     <span class="dot"></span>
                     <span class="dot"></span>
                     <span class="dot"></span>
                 </li>
-                <li class="die-item" data-side="5">
-                    <span class="dot"></span>
+                <li class="die-item" data-side="4" value="4">
                     <span class="dot"></span>
                     <span class="dot"></span>
                     <span class="dot"></span>
                     <span class="dot"></span>
                 </li>
-                <li class="die-item" data-side="6">
+                <li class="die-item" data-side="5" value="5">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </li>
+                <li class="die-item" data-side="6" value="6">
                     <span class="dot"></span>
                     <span class="dot"></span>
                     <span class="dot"></span>
@@ -45,32 +86,32 @@
                 </li>
             </ol>
             <ol class="die-list odd-roll" data-roll="1" id="die2">
-                <li class="die-item" data-side="1">
+                <li class="die-item" data-side="1" value="1">
                     <span class="dot"></span>
                 </li>
-                <li class="die-item" data-side="2">
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                </li>
-                <li class="die-item" data-side="3">
-                    <span class="dot"></span>
+                <li class="die-item" data-side="2" value="2">
                     <span class="dot"></span>
                     <span class="dot"></span>
                 </li>
-                <li class="die-item" data-side="4">
-                    <span class="dot"></span>
+                <li class="die-item" data-side="3" value="3">
                     <span class="dot"></span>
                     <span class="dot"></span>
                     <span class="dot"></span>
                 </li>
-                <li class="die-item" data-side="5">
-                    <span class="dot"></span>
+                <li class="die-item" data-side="4" value="4">
                     <span class="dot"></span>
                     <span class="dot"></span>
                     <span class="dot"></span>
                     <span class="dot"></span>
                 </li>
-                <li class="die-item" data-side="6">
+                <li class="die-item" data-side="5" value="5">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </li>
+                <li class="die-item" data-side="6" value="6">
                     <span class="dot"></span>
                     <span class="dot"></span>
                     <span class="dot"></span>
@@ -80,7 +121,21 @@
                 </li>
             </ol>
         </div>
+        <div id="bet">
+            <input type="text" id="nick" placeholder="nickname"><br>
+            <span></span><br>
+            <div id="highlow">
+                <button id="higher">Higher</button>
+                <button id="lower" style="float: right;">Lower</button>
+            </div>
+
+        </div>
+
         <button type="button" id="roll-button">Roll!</button>
+
+        <button id="resetHigh">Reset High Score</button>
+
+
     </main>
     <script src="js/script.js"></script>
 </body>
