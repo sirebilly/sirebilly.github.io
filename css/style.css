@@ -32,11 +32,13 @@ body {
 }
 
 .die-list {
-    height: 6rem;
+    height: 8rem;
     list-style-type: none;
     position: relative;
     transform-style: preserve-3d;
-    width: 6rem;
+    /* padding: 1rem; */
+    width: 8rem;
+    
 }
 
 .even-roll {
@@ -55,8 +57,7 @@ body {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     height: 100%;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding: 1rem;
     position: absolute;
     width: 100%;
 }
@@ -228,7 +229,7 @@ body {
     grid-area: nine;
 }
 
-button {
+#roll-button, #resetHigh {
     align-self: center;
     background-color: #efefef;
     border: none;
@@ -239,12 +240,40 @@ button {
     padding: 0.5rem 1rem;
 }
 
+#higher, #lower {
+    background-color: #efefef;
+    border: none;
+    color: #333;
+    font-size: 1.25rem;
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+}
+
+#highlow{
+    align-self: center;
+    justify-self: center;
+}
+
+#bet {
+    align-self: center;
+    border: none;
+    justify-self: center;
+}
+
+#nick {
+    align-self: center;
+    border: none;
+    font-size: 1.25rem;
+    justify-self: center;
+    text-align: center;
+}
+
 button:hover {
     cursor: pointer;
 }
 
 @media (min-width: 900px) {
     .dice {
-        perspective: 1300px;
+        perspective: 1000px;
     }
 }
