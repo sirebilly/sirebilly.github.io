@@ -106,7 +106,7 @@ function rollDice() {
     // high.pop(); 
     // var items = JSON.stringify(high);
     // localStorage.setItem("high", items);
-    // localStorage.setItem("win", win);
+    localStorage.setItem("win", win);
 
     //$("#highScore").text(items);
    
@@ -158,7 +158,6 @@ $(document).ready(function () {
     if (localStorage.getItem("win")) {
         win = JSON.parse(localStorage.getItem("win"));
         displayWin();
-        displayBestWin();
     } else {
         resetWin();
     }
@@ -167,6 +166,8 @@ $(document).ready(function () {
         bestWin = 0;
         localStorage.setItem("bestWin", bestWin);
     } else {
+        bestWin = JSON.parse(localStorage.getItem("bestWin"));
         localStorage.setItem("bestWin", bestWin);
     }
+    displayBestWin();
 });
