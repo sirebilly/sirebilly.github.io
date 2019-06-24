@@ -46,6 +46,7 @@ function playerClickedLower(){
     rollDice();
 }
 
+
 function rollDice() {
     const dice = [...document.querySelectorAll(".die-list")];
     var pummel = 0;
@@ -65,6 +66,18 @@ function rollDice() {
             if(win > bestWin){
                 localStorage.setItem("bestWin", win);
             }
+            var highs = JSON.parse(localStorage.getItem("high"));
+            var nick = $("#nick").val();
+            if(nick==""){
+                nick="Player";
+            }
+            high.push({"nick": nick, "score": win});
+            high.sort(function(o1,o2){return o2.score-o1.score});
+            console.log(highs);
+            high.pop();
+            var items = JSON.stringify(high);
+            localStorage.setItem("high", items);
+            localStorage.setItem("win", win);
             displayBestWin();
         }
     }else if(bid == 2){
@@ -106,14 +119,12 @@ function rollDice() {
     // high.pop(); 
     // var items = JSON.stringify(high);
     // localStorage.setItem("high", items);
-    // localStorage.setItem("win", win);
+    localStorage.setItem("win", win);
 
     //$("#highScore").text(items);
    
     displayScores();
     displayWin();
-
-    
 }
 
 function setHighScore(score){
@@ -143,6 +154,7 @@ document.getElementById("resetHigh").addEventListener("click", resetScore);
 document.getElementById("higher").addEventListener("click", playerClickedHigher);
 document.getElementById("lower").addEventListener("click", playerClickedLower);
 
+
 var high = [];
 $(document).ready(function () {
     if (localStorage.getItem("high")) {
@@ -158,7 +170,6 @@ $(document).ready(function () {
     if (localStorage.getItem("win")) {
         win = JSON.parse(localStorage.getItem("win"));
         displayWin();
-        displayBestWin();
     } else {
         resetWin();
     }
@@ -167,6 +178,8 @@ $(document).ready(function () {
         bestWin = 0;
         localStorage.setItem("bestWin", bestWin);
     } else {
+        bestWin = JSON.parse(localStorage.getItem("bestWin"));
         localStorage.setItem("bestWin", bestWin);
     }
+    displayBestWin();
 });
