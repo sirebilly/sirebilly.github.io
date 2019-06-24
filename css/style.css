@@ -27,8 +27,9 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
     grid-template-rows: auto;
     justify-items: center;
-    padding: 2rem;
-    perspective: 800px;
+    padding: 1rem;
+    perspective: 600px;
+
 }
 
 .die-list {
@@ -36,7 +37,7 @@ body {
     list-style-type: none;
     position: relative;
     transform-style: preserve-3d;
-    /* padding: 1rem; */
+    padding: 2rem; 
     width: 8rem;
     
 }

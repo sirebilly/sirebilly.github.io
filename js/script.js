@@ -46,6 +46,7 @@ function playerClickedLower(){
     rollDice();
 }
 
+
 function rollDice() {
     const dice = [...document.querySelectorAll(".die-list")];
     var pummel = 0;
@@ -65,6 +66,18 @@ function rollDice() {
             if(win > bestWin){
                 localStorage.setItem("bestWin", win);
             }
+            var highs = JSON.parse(localStorage.getItem("high"));
+            var nick = $("#nick").val();
+            if(nick==""){
+                nick="Player";
+            }
+            high.push({"nick": nick, "score": win});
+            high.sort(function(o1,o2){return o2.score-o1.score});
+            console.log(highs);
+            high.pop();
+            var items = JSON.stringify(high);
+            localStorage.setItem("high", items);
+            localStorage.setItem("win", win);
             displayBestWin();
         }
     }else if(bid == 2){
@@ -112,8 +125,6 @@ function rollDice() {
    
     displayScores();
     displayWin();
-
-    
 }
 
 function setHighScore(score){
@@ -142,6 +153,7 @@ document.getElementById("roll-button").addEventListener("click", rollDice);
 document.getElementById("resetHigh").addEventListener("click", resetScore);
 document.getElementById("higher").addEventListener("click", playerClickedHigher);
 document.getElementById("lower").addEventListener("click", playerClickedLower);
+
 
 var high = [];
 $(document).ready(function () {

@@ -1,0 +1,25 @@
+{
+  "name": "Higher or Lower Dice",
+  "short_name": "HLD",
+  "icons": [
+    {
+      "src": "/src/images/icons-192.jpg",
+      "type": "image/jpg",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/src/images/icons-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/index.html",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#fff",
+  "theme_color": "#3f51b5",
+  "description": "Dice higher or lower with PWA",
+  "dir": "ltr",
+  "lang": "en-US"
+}
